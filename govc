@@ -1,0 +1,63 @@
+#!/usr/local/bin/zsh
+
+# govc wrapper for macOS
+
+# // determine vSphere server
+
+# parse commandline options
+zparseopts -D -A ARGV e: l: u: v
+
+# convert parameter values to lowercase
+typeset -l ARG_E=$ARGV[-e]
+typeset -l ARG_L=$ARGV[-l]
+typeset -l ARG_U=$ARGV[-u]
+
+# set the environment
+case $ARG_E in
+  # default environment
+  *)
+    ENVIRONMENT="env"
+    ;;
+esac
+
+# set the location
+case $ARG_L in
+  # default location
+  *)
+    LOCATION="somewhere"
+    ;;
+esac
+
+# set the username
+case $ARG_U in
+  # default user
+  *)
+    USER="username"
+    ;;
+esac
+
+# set the vSphere server
+[[ $ENVIRONMENT = "env" && $LOCATION = "somewhere" ]] && VSPHERE_SERVER="servername"
+
+# option -v: show parameters
+if [[ -n ${ARGV[(i)-v]} ]]
+then
+  printf "usr=%s env=%s loc=%s srv=%s\n" $USER $ENVIRONMENT $LOCATION $VSPHERE_SERVER
+fi
+
+# set proxy variables
+unset http_proxy https_proxy no_proxy
+
+# set govc variables
+GOVC_URL="${VSPHERE_SERVER}.domain"
+GOVC_USERNAME="domain\\${USER}"
+GOVC_PASSWORD="$(/usr/bin/security find-generic-password -s govc -a $USER -w)"
+GOVC_INSECURE="true"
+export GOVC_URL GOVC_USERNAME GOVC_PASSWORD GOVC_INSECURE
+
+# check for valid password
+[[ -z $GOVC_PASSWORD ]] && print "error: failed to retrieve password" && exit 1
+
+# exec the real govc binary
+exec /usr/local/bin/govc-bin $@
+
