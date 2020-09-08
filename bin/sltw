@@ -1,0 +1,4 @@
+#!/bin/sh
+# sltw - strip leading and trailing whitespace
+sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+

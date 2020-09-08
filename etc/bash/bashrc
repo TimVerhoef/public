@@ -1,0 +1,42 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Source local definitions
+if [ -f ${HOME}/.bashrc.local ]; then
+	. ${HOME}/.bashrc.local
+fi
+
+# User specific aliases and functions
+alias cls='/usr/bin/clear'
+alias la='/bin/ls -la'
+alias ll='/bin/ls -l'
+
+# git
+alias ga='git add'
+alias gb='git branch'
+alias gbva='git branch -va'
+alias gco='git checkout'
+alias gcb='git checkout -b '
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcfg='git config'
+alias gd='git diff --color'
+alias gdw='git diff -w'
+alias gf='git fetch'
+alias gl='git log'
+alias gld='git log --diff-filter=D --summary'
+alias gldel='git log --diff-filter=D --summary|grep delete'
+alias glom='git log origin/master..HEAD'
+alias gp='git push'
+alias gr='git remote'
+alias grv='git remote -v'
+alias gs='git status'
+
+# misc
+set -o vi
+umask 0007
+

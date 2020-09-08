@@ -1,0 +1,232 @@
+#!/bin/bash
+
+ONLY_THIS_ONE="$1"
+
+if [[ -z $ONLY_THIS_ONE ]]
+then
+  # show all (glyph, codepoint, name)
+  GLYPH=$(perl -CS -e 'print "\x{232B}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "232B" "apple-backspace"
+  GLYPH=$(perl -CS -e 'print "\x{2318}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2318" "apple-command"
+  GLYPH=$(perl -CS -e 'print "\x{2326}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2326" "apple-delete"
+  GLYPH=$(perl -CS -e 'print "\x{2325}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2325" "apple-option"
+  GLYPH=$(perl -CS -e 'print "\x{21BA}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "21BA" "arrow-circle-anticlockwise"
+  GLYPH=$(perl -CS -e 'print "\x{21BB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "21BB" "arrow-circle-clockwise"
+  GLYPH=$(perl -CS -e 'print "\x{21FD}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "21FD" "arrow-left-open-headed"
+  GLYPH=$(perl -CS -e 'print "\x{21DA}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "21DA" "arrow-left-triple"
+  GLYPH=$(perl -CS -e 'print "\x{2612}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2612" "box-crossed"
+  GLYPH=$(perl -CS -e 'print "\x{2610}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2610" "box-empty"
+  GLYPH=$(perl -CS -e 'print "\x{2611}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2611" "box-ticked"
+  GLYPH=$(perl -CS -e 'print "\x{25CF}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25CF" "circle-black"
+  GLYPH=$(perl -CS -e 'print "\x{25CB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25CB" "circle-white"
+  GLYPH=$(perl -CS -e 'print "\x{2297}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2297" "circled-cross"
+  GLYPH=$(perl -CS -e 'print "\x{2299}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2299" "circled-dot"
+  GLYPH=$(perl -CS -e 'print "\x{2296}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2296" "circled-minus"
+  GLYPH=$(perl -CS -e 'print "\x{2295}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2295" "circled-plus"
+  GLYPH=$(perl -CS -e 'print "\x{2298}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2298" "circled-slash"
+  GLYPH=$(perl -CS -e 'print "\x{00AB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "00AB" "double-arrow-left"
+  GLYPH=$(perl -CS -e 'print "\x{00BB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "00BB" "double-arrow-right"
+  GLYPH=$(perl -CS -e 'print "\x{E0A0}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0A0" "git-branch"
+  GLYPH=$(perl -CS -e 'print "\x{E0A1}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0A1" "line-number"
+  GLYPH=$(perl -CS -e 'print "\x{E0A2}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0A2" "locked"
+  GLYPH=$(perl -CS -e 'print "\x{23FB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "23FB" "power-symbol"
+  GLYPH=$(perl -CS -e 'print "\x{2702}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2702" "scissors-black"
+  GLYPH=$(perl -CS -e 'print "\x{2704}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2704" "scissors-white"
+  GLYPH=$(perl -CS -e 'print "\x{E0B2}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0B2" "section-separator-left"
+  GLYPH=$(perl -CS -e 'print "\x{E0B0}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0B0" "section-separator-right"
+  GLYPH=$(perl -CS -e 'print "\x{263B}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "263B" "smiley-black"
+  GLYPH=$(perl -CS -e 'print "\x{263A}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "263A" "smiley-white"
+  GLYPH=$(perl -CS -e 'print "\x{25A0}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25A0" "square-black"
+  GLYPH=$(perl -CS -e 'print "\x{25A1}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25A1" "square-white"
+  GLYPH=$(perl -CS -e 'print "\x{25FC}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25FC" "square2-black"
+  GLYPH=$(perl -CS -e 'print "\x{25FB}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25FB" "square2-white"
+  GLYPH=$(perl -CS -e 'print "\x{25FD}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25FD" "square3-black"
+  GLYPH=$(perl -CS -e 'print "\x{25FE}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25FE" "square3-white"
+  GLYPH=$(perl -CS -e 'print "\x{E0B3}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0B3" "subsection-separator-left"
+  GLYPH=$(perl -CS -e 'print "\x{E0B1}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "E0B1" "subsection-separator-right"
+  GLYPH=$(perl -CS -e 'print "\x{260E}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "260E" "telephone"
+  GLYPH=$(perl -CS -e 'print "\x{25C2}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "25C2" "triangle-left-white-small"
+  GLYPH=$(perl -CS -e 'print "\x{26A0}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "26A0" "warning-sign"
+  GLYPH=$(perl -CS -e 'print "\x{2601}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2601" "weather-clouds"
+  GLYPH=$(perl -CS -e 'print "\x{2602}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2602" "weather-rain"
+  GLYPH=$(perl -CS -e 'print "\x{2600}"')
+  printf " %-4s U+%-5s %s\n" "${GLYPH}" "2600" "weather-sunny"
+else
+  # print single glyph
+  case $ONLY_THIS_ONE in
+    apple-backspace)
+      perl -CS -e 'print "\x{232B}\n"'
+      ;;
+    apple-command)
+      perl -CS -e 'print "\x{2318}\n"'
+      ;;
+    apple-delete)
+      perl -CS -e 'print "\x{2326}\n"'
+      ;;
+    apple-option)
+      perl -CS -e 'print "\x{2325}\n"'
+      ;;
+    arrow-circle-anticlockwise)
+      perl -CS -e 'print "\x{21BA}\n"'
+      ;;
+    arrow-circle-clockwise)
+      perl -CS -e 'print "\x{21BB}\n"'
+      ;;
+    arrow-left-open-headed)
+      perl -CS -e 'print "\x{21FD}\n"'
+      ;;
+    arrow-left-triple)
+      perl -CS -e 'print "\x{21DA}\n"'
+      ;;
+    box-crossed)
+      perl -CS -e 'print "\x{2612}\n"'
+      ;;
+    box-empty)
+      perl -CS -e 'print "\x{2610}\n"'
+      ;;
+    box-ticked)
+      perl -CS -e 'print "\x{2611}\n"'
+      ;;
+    circle-black)
+      perl -CS -e 'print "\x{25CF}\n"'
+      ;;
+    circle-white)
+      perl -CS -e 'print "\x{25CB}\n"'
+      ;;
+    circled-cross)
+      perl -CS -e 'print "\x{2297}\n"'
+      ;;
+    circled-dot)
+      perl -CS -e 'print "\x{2299}\n"'
+      ;;
+    circled-minus)
+      perl -CS -e 'print "\x{2296}\n"'
+      ;;
+    circled-plus)
+      perl -CS -e 'print "\x{2295}\n"'
+      ;;
+    circled-slash)
+      perl -CS -e 'print "\x{2298}\n"'
+      ;;
+    double-arrow-left)
+      perl -CS -e 'print "\x{00AB}\n"'
+      ;;
+    double-arrow-right)
+      perl -CS -e 'print "\x{00BB}\n"'
+      ;;
+    git-branch)
+      perl -CS -e 'print "\x{E0A0}\n"'
+      ;;
+    line-number)
+      perl -CS -e 'print "\x{E0A1}\n"'
+      ;;
+    locked)
+      perl -CS -e 'print "\x{E0A2}\n"'
+      ;;
+    power-symbol)
+      perl -CS -e 'print "\x{23FB}\n"'
+      ;;
+    scissors-black)
+      perl -CS -e 'print "\x{2702}\n"'
+      ;;
+    scissors-white)
+      perl -CS -e 'print "\x{2704}\n"'
+      ;;
+    section-separator-left)
+      perl -CS -e 'print "\x{E0B2}\n"'
+      ;;
+    section-separator-right)
+      perl -CS -e 'print "\x{E0B0}\n"'
+      ;;
+    smiley-black)
+      perl -CS -e 'print "\x{263B}\n"'
+      ;;
+    smiley-white)
+      perl -CS -e 'print "\x{263A}\n"'
+      ;;
+    square-black)
+      perl -CS -e 'print "\x{25A0}\n"'
+      ;;
+    square-white)
+      perl -CS -e 'print "\x{25A1}\n"'
+      ;;
+    square2-black)
+      perl -CS -e 'print "\x{25FC}\n"'
+      ;;
+    square2-white)
+      perl -CS -e 'print "\x{25FB}\n"'
+      ;;
+    square3-black)
+      perl -CS -e 'print "\x{25FD}\n"'
+      ;;
+    square3-white)
+      perl -CS -e 'print "\x{25FE}\n"'
+      ;;
+    subsection-separator-left)
+      perl -CS -e 'print "\x{E0B3}\n"'
+      ;;
+    subsection-separator-right)
+      perl -CS -e 'print "\x{E0B1}\n"'
+      ;;
+    telephone)
+      perl -CS -e 'print "\x{260E}\n"'
+      ;;
+    triangle-left-white-small)
+      perl -CS -e 'print "\x{25C2}\n"'
+      ;;
+    warning-sign)
+      perl -CS -e 'print "\x{26A0}\n"'
+      ;;
+    weather-clouds)
+      perl -CS -e 'print "\x{2601}\n"'
+      ;;
+    weather-rain)
+      perl -CS -e 'print "\x{2602}\n"'
+      ;;
+    weather-sunny)
+      perl -CS -e 'print "\x{2600}\n"'
+      ;;
+  esac
+fi

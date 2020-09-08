@@ -1,0 +1,16 @@
+# .bashrc.local
+
+# User specific aliases and functions
+alias a='sltw|align'
+
+# tmux
+alias new='tmux new-session -s '
+alias ses='tmux attach-session -t '
+alias tls='tmux list-sessions'
+
+# link to the current SSH auth socket
+if [ -S "$SSH_AUTH_SOCK" ] && [ ! -h "$SSH_AUTH_SOCK" ]; then
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+

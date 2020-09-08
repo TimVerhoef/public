@@ -1,0 +1,32 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# source local profile
+if [[ -e ${HOME}/.bash_profile.local ]]
+then
+  . ${HOME}/.bash_profile.local
+fi
+
+# User specific environment and startup programs
+
+# environment
+LC_COLLATE=C
+LESS="FMRX"
+PATH=$HOME/bin:$PATH:/usr/local/bin:/sbin
+export LC_COLLATE LESS PATH
+
+# determine source name or address
+unset FROM
+typeset -u UCHOSTNAME=$(/bin/hostname -s)
+SOURCE=$(/usr/bin/who -m|/bin/cut -s -d\( -f2|/usr/bin/cut -d\) -f1)
+[[ -n $(echo ${SOURCE%%.*}|/usr/bin/tr -d '[:digit:]') ]] && \
+	SOURCE=${SOURCE%%.*} && \
+	FROM=" from $SOURCE"
+
+# set the title
+PROMPT_COMMAND="echo -n -e '\033]2;'${UCHOSTNAME}${FROM}'\007'"
+

@@ -1,0 +1,20 @@
+# .bash_profile.local for stepping stone
+
+# unset LC_CTYPE (from macOS)
+unset LC_CTYPE
+
+# show tmux sessions
+if [[ -x $HOME/bin/tmux && -z $TMUX && /usr/bin/tty ]]
+then
+	echo
+	echo "tmux sessions:"
+	echo "--------------"
+	if [[ -x $HOME/bin/align ]]
+	then
+		$HOME/bin/tmux ls|$HOME/bin/align
+	else
+		$HOME/bin/tmux ls
+	fi
+	echo
+fi
+
