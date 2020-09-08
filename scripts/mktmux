@@ -8,7 +8,7 @@
 # homework: Dockerize it for future use
 
 # define proxy
-export http_proxy=145.77.103.133:8080
+export http_proxy=
 export https_proxy=$http_proxy
 unset no_proxy
 

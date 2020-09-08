@@ -1,0 +1,101 @@
+#!/bin/sh
+
+INPUT=$(cat <<EOF
+apple-backspace            232B
+apple-command              2318
+apple-delete               2326
+apple-option               2325
+arrow-circle-anticlockwise 21BA
+arrow-circle-clockwise     21BB
+arrow-left-open-headed     21FD
+arrow-left-triple          21DA
+box-crossed                2612
+box-empty                  2610
+box-ticked                 2611
+circle-black               25CF
+circle-white               25CB
+circled-cross              2297
+circled-dot                2299
+circled-minus              2296
+circled-plus               2295
+circled-slash              2298
+double-arrow-left          00AB
+double-arrow-right         00BB
+git-branch                 E0A0
+line-number                E0A1
+locked                     E0A2
+power-symbol               23FB
+scissors-black             2702
+scissors-white             2704
+section-separator-left     E0B2
+section-separator-right    E0B0
+smiley-black               263B
+smiley-white               263A
+square-black               25A0
+square-white               25A1
+square2-black              25FC
+square2-white              25FB
+square3-black              25FD
+square3-white              25FE
+subsection-separator-left  E0B3
+subsection-separator-right E0B1
+telephone                  260E
+triangle-left-white-small  25C2
+warning-sign               26A0
+weather-clouds             2601
+weather-rain               2602
+weather-sunny              2600
+EOF
+)
+
+FILE="${HOME}/bin/uc"
+
+# initialize the uc script
+cat >${FILE} <<EOF
+#!/bin/bash
+
+ONLY_THIS_ONE="\$1"
+
+if [[ -z \$ONLY_THIS_ONE ]]
+then
+  # show all (glyph, codepoint, name)
+EOF
+
+# list all glyphs
+echo $INPUT|xargs -n2| \
+while read NAME CODEPOINT
+do
+  cat >>${FILE} <<EOF
+  GLYPH=\$(perl -CS -e 'print "\x{${CODEPOINT}}"')
+  printf " %-4s U+%-5s %s\n" "\${GLYPH}" "${CODEPOINT}" "${NAME}"
+EOF
+done
+
+cat >>${FILE} <<EOF
+else
+  # print single glyph
+  case \$ONLY_THIS_ONE in
+EOF
+
+# show single glyph
+echo $INPUT|xargs -n2| \
+while read NAME CODEPOINT
+do
+  cat >>${FILE} <<EOF
+    ${NAME})
+      perl -CS -e 'print "\x{${CODEPOINT}}\n"'
+      ;;
+EOF
+done
+
+# finalize the uc script
+cat >>${FILE} <<EOF
+  esac
+fi
+EOF
+
+# make the script executable
+chmod 0755 $FILE
+
+exit 0
+
